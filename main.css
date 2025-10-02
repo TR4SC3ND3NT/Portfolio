@@ -1,0 +1,87 @@
+/* переменные для тем (используются по всему файлу) */
+:root{ /* корень: значения для тёмной темы по умолчанию */
+  --bg: #0c0c0d;     /* основной фон */
+  --panel: #1b1c1f;  /* фон панелей */
+  --surface: #232429;/* фон карточек */
+  --border: #34363b; /* цвет границ */
+  --text: #e8e8ea;   /* основной текст */
+  --muted: #9aa0a6;  /* вторичный текст */
+  --radius: 12px;    /* скругление */
+}
+
+/* при светлой теме переопределяю только переменные */
+body.light{ /* при наличии класса .light на body */
+  --bg: #f5f6f8;     /* мягкий фон */
+  --panel: #ffffff;  /* светлая панель */
+  --surface: #ffffff;/* карточки светлее */
+  --border: #e6e6e9; /* тонкая граница */
+  --text: #222222;   /* основной текст тёмно-серый */
+  --muted: #6b7280;  /* вторичный серый */
+}
+
+/* сбросы и базовые правила */
+*,*::before,*::after{box-sizing:border-box;} /* включаю box-sizing */
+html,body{height:100%;} /* растягиваю на всю высоту */
+body{ /* базовые стили для body */
+  margin:0; /* убираю отступы */
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; /* шрифт */
+  line-height:1.45; /* высота строки */
+  color:var(--text); /* цвет текста из переменной */
+  background:var(--bg); /* фон из переменной */
+  transition: background-color .22s ease, color .22s ease; /* плавная смена темы */
+}
+img,svg{display:block; max-width:100%;} /* картинки не выходят за контейнер */
+a{text-decoration:none; color:inherit;} /* ссылки без подчёркивания */
+ul{margin:0; padding:0; list-style:none;} /* списки без маркеров */
+.container{width:min(1160px,100% - 32px); margin-inline:auto;} /* центрирую контейнер */
+
+/* шапка */
+.header{background:#141518; border-bottom:1px solid var(--border);} /* фон и нижняя граница шапки */
+.header__row{display:flex; align-items:center; gap:16px; padding:12px 0;} /* выравнивание строк в шапке */
+.logo{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:#1a1b1f;} /* стиль логотипа */
+.logo__mark{font-size:18px;} /* размер значка */
+.logo__text{font-weight:700; letter-spacing:.2px;} /* текст логотипа */
+.nav__list{display:flex; gap:16px;} /* пунктов меню в ряд */
+.actions{margin-left:auto; display:flex; gap:8px; align-items:center;} /* блок действий справа */
+
+/* кнопки */
+.btn{padding:8px 12px; border:1px solid var(--border); border-radius:8px; background:var(--surface); color:var(--text); font-weight:600; font-size:14px; display:inline-flex; align-items:center; justify-content:center; cursor:default;} /* визуал кнопок */
+.btn--primary{background:#2a2b31;} /* вариант для primary */
+
+/* баннер */
+.hero{padding:16px 0 24px;} /* отступы вокруг баннера */
+.banner{height:clamp(160px,28vw,300px); border:1px solid var(--border); border-radius:var(--radius); background-color:#0f1013; background-size:cover; background-position:center;} /* блок-баннер */
+
+/* панель с карточками */
+.board{padding:0 0 32px;} /* отступ снизу */
+.board__box{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:24px;} /* фон панели */
+
+/* карточки */
+.grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px;} /* сетка 3 колонки */
+.card{display:grid; grid-template-columns:112px 1fr; gap:16px; align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px;} /* карточка */
+.card__media{width:112px; aspect-ratio:1/1; border-radius:8px; overflow:hidden; border:1px solid #2f3137; background:#0f1013;} /* контейнер для картинки */
+.card__media img{width:100%; height:100%; object-fit:cover;} /* изображение заполняет контейнер */
+.card__body h3{margin:0 0 6px; font-size:18px;} /* заголовок карточки */
+.card__body p{margin:0; color:var(--muted); font-size:14px;} /* подпись карточки */
+
+/* футер */
+.board-footer{margin-top:24px; border-top:1px solid var(--border); padding-top:16px;} /* разделитель и отступы */
+.social{display:flex; gap:8px; margin-bottom:16px;} /* ряд иконок */
+.social a{width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:6px; background:var(--surface); color:var(--text);} /* стиль иконок */
+.links{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;} /* три колонки ссылок */
+.col h4{margin:0 0 8px; font-size:14px; color:#c7c9cf;} /* заголовок колонки */
+.col ul{display:grid; gap:6px;} /* вертикальный список */
+.col span{color:var(--muted); font-size:14px;} /* обычный текст внутри списка */
+.copy{margin-top:12px; color:var(--muted); font-size:12px;} /* копирайт */
+
+/* адаптив */
+@media (max-width:1024px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));} /* 2 колонки на планшетах */
+}
+@media (max-width:640px){
+  .header__row{flex-wrap:wrap;} /* шапка переносится */
+  .grid{grid-template-columns:1fr;} /* 1 колонка на телефоне */
+  .card{grid-template-columns:1fr;} /* карточка вертикально */
+  .card__media{width:100%; aspect-ratio:3/2;} /* изображение растягивается */
+  .links{grid-template-columns:1fr;} /* колонки ссылок в одну колонку */
+}
