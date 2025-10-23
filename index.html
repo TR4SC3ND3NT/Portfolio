@@ -1,125 +1,169 @@
-<!DOCTYPE html> <!-- объявление документа HTML5 -->
-<html lang="ru"> <!-- язык документа: русский -->
-<head> <!-- начало заголовка страницы -->
-  <meta charset="utf-8"> <!-- кодировка документа -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- адаптив под разные экраны -->
-  <meta name="color-scheme" content="dark"> <!-- указание, что по умолчанию тема тёмная -->
-  <title>Hackaday style — demo</title> <!-- текст вкладки браузера -->
-  <link rel="stylesheet" href="main.css"> <!-- подключение CSS-файла -->
-</head> <!-- конец заголовка -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Personal portfolio showcasing cybersecurity projects and skills">
+  <title>My Portfolio - Cybersecurity Developer</title>
+  <link rel="stylesheet" href="main.css">
+</head>
 
-<body> <!-- начало тела страницы -->
+<body>
+  <header class="header">
+    <div class="container header__row">
+      <span class="logo" aria-label="Portfolio Home">
+        <span class="logo__mark">✖</span>
+        <span class="logo__text">MyPortfolio</span>
+      </span>
 
-  <header class="header"> <!-- шапка сайта -->
-    <div class="container header__row"> <!-- контейнер для выравнивания элементов в шапке -->
-      <span class="logo" aria-label="На главную"> <!-- логотип как блок, не ссылка -->
-        <span class="logo__mark">✖</span> <!-- маленький значок логотипа -->
-        <span class="logo__text">HackaDay</span> <!-- текстовая часть логотипа -->
-      </span> <!-- конец логотипа -->
+      <nav class="nav" aria-label="Main Navigation">
+        <ul class="nav__list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-      <nav class="nav" aria-label="Навигация"> <!-- навигация -->
-        <ul class="nav__list"> <!-- список пунктов меню -->
-          <li> <!-- пункт меню: Community -->
-            <a href="https://discord.gg/ZuKQEUQB" target="_blank" rel="noopener noreferrer">Community</a> <!-- ссылка на Discord -->
-          </li> <!-- конец пункта -->
-          <li> <!-- пункт меню: Contact -->
-            <a href="https://t.me/Werfauster" target="_blank" rel="noopener noreferrer">Contact</a> <!-- ссылка на Telegram -->
-          </li> <!-- конец пункта -->
-        </ul> <!-- конец списка -->
-      </nav> <!-- конец навигации -->
+      <div class="actions">
+        <button id="theme-toggle" class="btn" aria-label="Toggle typewriter animation">▶️</button>
+        <span id="visits-count" class="btn">Visits: 0</span>
+      </div>
+    </div>
+  </header>
 
-      <div class="actions"> <!-- блок действий справа в шапке -->
-        <button id="theme-toggle" class="btn" aria-label="Переключить тему">☀️</button> <!-- кнопка для переключения темы -->
-        <span class="btn">Sign in</span> <!-- текстовая кнопка, не кликабельная -->
-        <span class="btn btn--primary">Register</span> <!-- текстовая кнопка, не кликабельная -->
-      </div> <!-- конец блока действий -->
-    </div> <!-- конец контейнера шапки -->
-  </header> <!-- конец шапки -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="banner" style="background-image:url('ascii-logo-1.webp');" role="img" aria-label="Cybersecurity banner"></div>
+        <h2 id="typewriter" class="typewriter" aria-live="polite" aria-atomic="true"></h2>
+      </div>
+    </section>
 
-  <main> <!-- основной контент -->
-    <section class="hero"> <!-- баннер / промо-секция -->
-      <div class="container"> <!-- контейнер для выравнивания контента -->
-        <div class="banner" style="background-image:url('ascii-logo-1.webp');" role="img" aria-label="banner"></div> <!-- блок-баннер с фоном -->
-      </div> <!-- конец контейнера баннера -->
-    </section> <!-- конец hero -->
+    <!-- About Me Section -->
+    <section id="about" class="board">
+      <div class="container board__box">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <p>Cybersecurity enthusiast and full-stack developer with passion for web security, CTF competitions, and open-source projects. Specializing in DevSecOps practices and secure coding.</p>
+          <div class="skills">
+            <span class="skill-tag">Web Security</span>
+            <span class="skill-tag">DevSecOps</span>
+            <span class="skill-tag">CTF</span>
+            <span class="skill-tag">Encryption</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="board"> <!-- панель с карточками -->
-      <div class="container board__box"> <!-- ограничитель ширины + фон панели -->
-        <ul class="grid"> <!-- сетка карточек -->
-          <li class="card"> <!-- карточка 1 -->
-            <div class="card__media"><img src="i-use-arch-btw-wallpapers-requested-by-u-funk443-v0-4q7g5p37naa81.png" alt="Arch user"></div> <!-- изображение превью -->
-            <div class="card__body"><h3>Arch user</h3><p>btw, i use arch</p></div> <!-- заголовок + подпись -->
-          </li> <!-- конец карточки -->
-          <li class="card"> <!-- карточка 2 -->
-            <div class="card__media"><img src="f53227feb202591ffa42b327f9414810.jpg" alt="clavier"></div> <!-- изображение -->
-            <div class="card__body"><h3>clavier</h3><p>clavier player</p></div> <!-- текст -->
-          </li> <!-- конец карточки -->
-          <li class="card"> <!-- карточка 3 -->
-            <div class="card__media"><img src="9d3513c3de82ddffcbde2fc203d11040.png" alt="ctf"></div> <!-- изображение -->
-            <div class="card__body"><h3>ctf</h3><p>alatoo ctf team member</p></div> <!-- текст -->
-          </li> <!-- конец карточки -->
-          <li class="card"> <!-- карточка 4 -->
-            <div class="card__media"><img src="35058335-vingerafdruk-in-sleutel-vorm-met-stroomkring-achtergrond-cyber-veiligheid-id-kaart-concept-veiligheid-cryptogeld-technologie-autorisatie-futuristische-systeem-illustratie-vector.jpg" alt="cybersec"></div> <!-- изображение -->
-            <div class="card__body"><h3>cybersec</h3><p>encryption engineering</p></div> <!-- текст -->
-          </li> <!-- конец карточки -->
-          <li class="card"> <!-- карточка 5 -->
-            <div class="card__media"><img src="How-to-Become-DevOps-Engineer.jpg" alt="DevOps"></div> <!-- изображение -->
-            <div class="card__body"><h3>DevOps</h3><p>OS engineer</p></div> <!-- текст -->
-          </li> <!-- конец карточки -->
-          <li class="card"> <!-- карточка 6 -->
-            <div class="card__media"><img src="fsociety_green.png" alt="whoami"></div> <!-- изображение -->
-            <div class="card__body"><h3>whoami</h3><p>MrRobot</p></div> <!-- текст -->
-          </li> <!-- конец карточки -->
-        </ul> <!-- конец сетки -->
+    <!-- Projects Section -->
+    <section id="projects" class="board">
+      <div class="container board__box">
+        <h2 class="section-title">My Projects</h2>
+        <ul class="grid">
+          <!-- Project 1 -->
+          <li class="card project-card">
+            <div class="card__media">
+              <img src="i-use-arch-btw-wallpapers-requested-by-u-funk443-v0-4q7g5p37naa81.png" alt="Secure Linux Distribution Project">
+            </div>
+            <div class="card__body">
+              <h3>Secure Arch Setup</h3>
+              <p>Hardened Linux distribution with custom security configurations and automated deployment scripts.</p>
+              <div class="tech-stack">
+                <span>Bash</span>
+                <span>Linux</span>
+                <span>Ansible</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/yourusername/secure-arch" target="_blank" class="btn btn--small">GitHub</a>
+                <a href="#" class="btn btn--small btn--primary">Live Demo</a>
+              </div>
+            </div>
+          </li>
 
-        <footer class="board-footer"> <!-- футер панели -->
-          <div class="social"> <!-- блок социконок -->
-            <a href="https://github.com/TR4SC3ND3NT" target="_blank" rel="noopener noreferrer" aria-label="GitHub"> <!-- ссылка на GitHub -->
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 000 12a11.5 11.5 0 008 11v-3c-3 1-4-1-4-1a3 3 0 00-1-2c-1-1 0-1 0-1a2.3 2.3 0 011.7 1A2.4 2.4 0 009 18c.1-.6.4-1 .7-1.3-2.6-.3-5.3-1.3-5.3-5.9a4.6 4.6 0 011.2-3.2 4.3 4.3 0 01.1-3.1S7.7 3 9.9 4.5a11 11 0 015.8 0S17 4.7 17 4.7a4.3 4.3 0 01.1 3.1 4.6 4.6 0 011.2 3.2c0 4.6-2.7 5.6-5.3 5.9a2.9 2.9 0 01.8 2.2V23A11.5 11.5 0 0024 12 11.5 11.5 0 0012 .5z"/></svg> <!-- SVG иконка GitHub -->
-            </a> <!-- конец ссылки -->
-            <a href="https://discord.gg/ZuKQEUQB" target="_blank" rel="noopener noreferrer" aria-label="Discord"> <!-- ссылка на Discord -->
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20 5.1A17.3 17.3 0 0015.6 4l-.3.6a16 16 0 00-6.6 0L8.4 4A17.3 17.3 0 004 5.1C1.6 9 .8 12.7 1 16.3a17.8 17.8 0 005.6 2.8l.8-1.2a10.7 10.7 0 01-1.7-.8l.4-.3a12.6 12.6 0 0012 0l.4.3a10.7 10.7 0 01-1.7.8l.8 1.2A17.8 17.8 0 0023 16.3c.2-3.6-.6-7.3-3-11.2zM8.8 14.5a1.9 1.9 0 110-3.8 1.9 1.9 0 010 3.8zm6.4 0a1.9 1.9 0 110-3.8 1.9 1.9 0 010 3.8z"/></svg> <!-- SVG иконка Discord -->
-            </a> <!-- конец ссылки -->
-          </div> <!-- конец блока соцсетей -->
+          <!-- Project 2 -->
+          <li class="card project-card">
+            <div class="card__media">
+              <img src="35058335-vingerafdruk-in-sleutel-vorm-met-stroomkring-achtergrond-cyber-veiligheid-id-kaart-concept-veiligheid-cryptogeld-technologie-autorisatie-futuristische-systeem-illustratie-vector.jpg" alt="Encryption Engine Project">
+            </div>
+            <div class="card__body">
+              <h3>Encryption Engine</h3>
+              <p>Web-based encryption tool implementing AES and RSA algorithms with secure key management.</p>
+              <div class="tech-stack">
+                <span>JavaScript</span>
+                <span>Node.js</span>
+                <span>Cryptography</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/yourusername/encryption-engine" target="_blank" class="btn btn--small">GitHub</a>
+                <a href="#" class="btn btn--small btn--primary">Live Demo</a>
+              </div>
+            </div>
+          </li>
 
-          <div class="links"> <!-- колонки ссылок (текст) -->
-            <div class="col"> <!-- колонка 1 -->
-              <h4>Use cases</h4> <!-- заголовок колонки -->
-              <ul> <!-- список -->
-                <li><span>websec</span></li> <!-- элемент списка -->
-                <li><span>devsecops</span></li>
-                <li><span>infosec</span></li>
-                <li><span>cybersec</span></li>
-              </ul> <!-- конец списка -->
-            </div> <!-- конец колонки -->
+          <!-- Project 3 -->
+          <li class="card project-card">
+            <div class="card__media">
+              <img src="How-to-Become-DevOps-Engineer.jpg" alt="DevOps Automation Project">
+            </div>
+            <div class="card__body">
+              <h3>DevOps Pipeline</h3>
+              <p>CI/CD pipeline with security scanning, automated testing, and deployment for web applications.</p>
+              <div class="tech-stack">
+                <span>Docker</span>
+                <span>GitHub Actions</span>
+                <span>Python</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/yourusername/devops-pipeline" target="_blank" class="btn btn--small">GitHub</a>
+                <a href="#" class="btn btn--small btn--primary">Live Demo</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-            <div class="col"> <!-- колонка 2 -->
-              <h4>Explore</h4> <!-- заголовок -->
-              <ul> <!-- список -->
-                <li><span>offsec</span></li>
-                <li><span>tsarka</span></li>
-                <li><span>binaryninja</span></li>
-                <li><span>websec</span></li>
-              </ul> <!-- конец списка -->
-            </div> <!-- конец колонки -->
+    <!-- Contact Section -->
+    <section id="contact" class="board">
+      <div class="container board__box">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-content">
+          <p>Feel free to reach out for collaborations or just to say hello!</p>
+          <div class="contact-links">
+            <a href="mailto:your.email@example.com" class="contact-link">
+              <span>📧</span> your.email@example.com
+            </a>
+            <a href="https://github.com/TR4SC3ND3NT" target="_blank" class="contact-link">
+              <span>💻</span> GitHub
+            </a>
+            <a href="https://t.me/Werfauster" target="_blank" class="contact-link">
+              <span>📱</span> Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            <div class="col"> <!-- колонка 3 -->
-              <h4>Resources</h4> <!-- заголовок -->
-              <ul> <!-- список -->
-                <li><span>ctftime</span></li>
-                <li><span>picoctf</span></li>
-                <li><span>hackthebox</span></li>
-                <li><span>tryhackme</span></li>
-              </ul> <!-- конец списка -->
-            </div> <!-- конец колонки -->
-          </div> <!-- конец блока колонок -->
+  <footer class="footer">
+    <div class="container">
+      <div class="social">
+        <a href="https://github.com/TR4SC3ND3NT" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 000 12a11.5 11.5 0 008 11v-3c-3 1-4-1-4-1a3 3 0 00-1-2c-1-1 0-1 0-1a2.3 2.3 0 011.7 1A2.4 2.4 0 019 18c.1-.6.4-1 .7-1.3-2.6-.3-5.3-1.3-5.3-5.9a4.6 4.6 0 011.2-3.2 4.3 4.3 0 01.1-3.1S7.7 3 9.9 4.5a11 11 0 015.8 0S17 4.7 17 4.7a4.3 4.3 0 01.1 3.1 4.6 4.6 0 011.2 3.2c0 4.6-2.7 5.6-5.3 5.9a2.9 2.9 0 01.8 2.2V23A11.5 11.5 0 0024 12 11.5 11.5 0 0012 .5z"/></svg>
+        </a>
+        <a href="https://discord.gg/ZuKQEUQB" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20 5.1A17.3 17.3 0 0015.6 4l-.3.6a16 16 0 00-6.6 0L8.4 4A17.3 17.3 0 004 5.1C1.6 9 .8 12.7 1 16.3a17.8 17.8 0 005.6 2.8l.8-1.2a10.7 10.7 0 01-1.7-.8l.4-.3a12.6 12.6 0 0012 0l.4.3a10.7 10.7 0 01-1.7.8l.8 1.2A17.8 17.8 0 0023 16.3c.2-3.6-.6-7.3-3-11.2zM8.8 14.5a1.9 1.9 0 110-3.8 1.9 1.9 0 010 3.8zm6.4 0a1.9 1.9 0 110-3.8 1.9 1.9 0 010 3.8z"/></svg>
+        </a>
+      </div>
+      <div class="copy">
+        <small>© 2025 My Portfolio. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
 
-          <div class="copy"> <small>© 2025 Your name. All rights reserved.</small> </div> <!-- копирайт -->
-        </footer> <!-- конец футера -->
-      </div> <!-- конец контейнера панели -->
-    </section> <!-- конец панели -->
-  </main> <!-- конец main -->
-
-  <script src="index.js"></script> <!-- подключение JS внизу страницы -->
-</body> <!-- конец тела -->
-</html> <!-- конец документа -->
+  <script src="index.js"></script>
+</body>
+</html>
